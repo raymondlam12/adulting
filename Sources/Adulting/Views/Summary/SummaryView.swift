@@ -26,12 +26,14 @@ struct SummaryView: View {
             }
         }
 
-        return users.map { user in
-            let t = tagged[user.id, default: 0]
-            let p = paid[user.id, default: 0]
-            return (user: user, tagged: t, paid: p, balance: t - p)
-        }
-        .sorted { abs($0.balance) > abs($1.balance) }
+        return users
+            .filter { !$0.isUnassigned }
+            .map { user in
+                let t = tagged[user.id, default: 0]
+                let p = paid[user.id, default: 0]
+                return (user: user, tagged: t, paid: p, balance: t - p)
+            }
+            .sorted { abs($0.balance) > abs($1.balance) }
     }
 
     var body: some View {

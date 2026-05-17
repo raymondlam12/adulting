@@ -11,6 +11,7 @@ struct ArchivedUser: Codable {
     var id: UUID
     var name: String
     var isSelf: Bool
+    var isUnassigned: Bool = false  // default keeps old archives decodable
     var createdAt: Date
 }
 

@@ -13,13 +13,26 @@ struct UserTagPicker: View {
                     Button {
                         toggle(user)
                     } label: {
-                        Text(user.name)
-                            .font(.subheadline)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
-                            .background(isSelected ? Color.accentColor : Color(.systemGray5))
-                            .foregroundStyle(isSelected ? .white : .primary)
-                            .clipShape(Capsule())
+                        Group {
+                            if user.isUnassigned {
+                                Label("? \(user.name)", systemImage: "questionmark.circle")
+                                    .font(.subheadline)
+                            } else {
+                                Text(user.name)
+                                    .font(.subheadline)
+                            }
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(
+                            isSelected ? Color.accentColor
+                                       : (user.isUnassigned ? Color.gray.opacity(0.2) : Color(.systemGray5))
+                        )
+                        .foregroundStyle(
+                            isSelected ? .white
+                                       : (user.isUnassigned ? Color.secondary : Color.primary)
+                        )
+                        .clipShape(Capsule())
                     }
                     .buttonStyle(.plain)
                 }

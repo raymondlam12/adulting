@@ -30,6 +30,7 @@ struct AddExpenseView: View {
     @State private var editingLineItem: DraftLineItem?
 
     @State private var session: ExpenseSession?
+    @State private var showOCRReview = false
 
     enum Step { case photo, details, lineItems }
 
@@ -66,6 +67,13 @@ struct AddExpenseView: View {
             CameraView { image in
                 capturedPhotoFilename = savePhoto(image)
                 showCamera = false
+            }
+        }
+        .sheet(isPresented: $showOCRReview) {
+            if let filename = capturedPhotoFilename {
+                OCRReviewView(imageFilename: filename) { extracted in
+                    appendExtractedItems(extracted)
+                }
             }
         }
         .sheet(isPresented: $showLineItemForm) {
@@ -120,6 +128,15 @@ struct AddExpenseView: View {
                 }
             }
             .padding(.horizontal)
+
+            if capturedPhotoFilename != nil {
+                Button { showOCRReview = true } label: {
+                    Label("Scan Receipt", systemImage: "text.viewfinder")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .padding(.horizontal)
+            }
 
             Spacer()
 
@@ -244,6 +261,19 @@ struct AddExpenseView: View {
     }
 
     // MARK: - Helpers
+
+    private func appendExtractedItems(_ extracted: [ExtractedLineItem]) {
+        guard let unassigned = users.first(where: { $0.isUnassigned }) else { return }
+        let startIndex = lineItems.count + 1
+        for (i, item) in extracted.enumerated() {
+            lineItems.append(DraftLineItem(
+                index: startIndex + i,
+                name: item.name,
+                amount: item.amount,
+                taggedUsers: [unassigned]
+            ))
+        }
+    }
 
     private func loadEditingSession() {
         guard let s = editingSession else { return }

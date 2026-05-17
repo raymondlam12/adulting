@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		000F13AD06031F6B9BC9E7FE /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDBE0D7808B414E21C890A6 /* AddExpenseView.swift */; };
 		00AFE69EA6B1F9BDD2E8521F /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38F4C3F8D13EC2DA83DA75 /* AddPersonView.swift */; };
+		0B599EFB89A61CB185EF1F96 /* FoundationModelsReceiptOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607BC98C7CCDD00C993C59DE /* FoundationModelsReceiptOCR.swift */; };
 		1478761B4BFBC9EC6E2F5DAD /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA2D62A31E7AD93A5AD9AF /* ExpenseListView.swift */; };
 		1B82867933F504F335005826 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260225E2A7FC0685F7ED95A /* AppUser.swift */; };
 		209B2CA8E3DF22943A80E358 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F1E7DABDB079BB9F664B04 /* Payment.swift */; };
@@ -17,14 +18,18 @@
 		47BBDD3922E0EA7E74CB0892 /* ExpenseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC65C74562A9C1A6E615C25 /* ExpenseDetailView.swift */; };
 		503A96F1780900284C8B8B45 /* ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0C92AC0463A4C855CF3D5 /* ArchiveData.swift */; };
 		50BFF7330A33C26CD4C03AD8 /* RecordPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8A094B7872F81FE079C78 /* RecordPaymentView.swift */; };
+		6B849D68792936112EED34BA /* OCRReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DD2A3600A92FCC7056CE9 /* OCRReviewView.swift */; };
 		7F1F183794F93F6ACA4690CE /* UserTagPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16E18419006134697C3A5A /* UserTagPicker.swift */; };
 		7F4592DFE732D006CBDDE026 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6408DBB45D9F275BC9F861 /* SummaryView.swift */; };
+		8B760ED74473B77E9AF7DBF2 /* VisionReceiptOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFC26FAE169113BDA95D80 /* VisionReceiptOCR.swift */; };
 		9722EA439D301607FA93DB0F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C26B60434CCA7682C1B34C /* HomeView.swift */; };
 		AAC06F5FCEDD3925A86129D2 /* ArchiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B244ADA565505B940636D4E /* ArchiveManager.swift */; };
 		B27CDE8BBD2465273A9D0DD5 /* ExpenseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396C54274338D6894F0B731 /* ExpenseSession.swift */; };
 		B925CC0848AA905602CF396A /* ModelContainer+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3FCA949299E31457C40DC /* ModelContainer+Setup.swift */; };
 		C466B5FE6BA46BD18B1A7BB1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B41052A6B1A01120DCB19C /* CameraView.swift */; };
 		C488ED95BCACB776F2FF81E5 /* LineItemFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232D89ECE9048D2F193E874E /* LineItemFormView.swift */; };
+		C55341F76E4481CF58D0886B /* ReceiptOCRFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE11B3316E84CB223D8693D2 /* ReceiptOCRFactory.swift */; };
+		CC125B891C8AB57E6D857D5D /* ReceiptOCRProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA5C86B43623D7B3A311E2 /* ReceiptOCRProvider.swift */; };
 		CE3CA0B653E99B640810FA15 /* BalanceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B1BED36124B9B774537D4 /* BalanceSummaryView.swift */; };
 		D072249AFA2C4361F1662CFD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054B8B8F99BF389B1A450980 /* SettingsView.swift */; };
 		D230EBEC367B8DE11AF9F5FE /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F248BB72B8669E8904B44B /* LineItem.swift */; };
@@ -32,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042DD2A3600A92FCC7056CE9 /* OCRReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRReviewView.swift; sourceTree = "<group>"; };
 		054B8B8F99BF389B1A450980 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0AB0C92AC0463A4C855CF3D5 /* ArchiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveData.swift; sourceTree = "<group>"; };
 		232D89ECE9048D2F193E874E /* LineItemFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineItemFormView.swift; sourceTree = "<group>"; };
@@ -43,6 +49,8 @@
 		4B244ADA565505B940636D4E /* ArchiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveManager.swift; sourceTree = "<group>"; };
 		4B6408DBB45D9F275BC9F861 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		5396C54274338D6894F0B731 /* ExpenseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSession.swift; sourceTree = "<group>"; };
+		607BC98C7CCDD00C993C59DE /* FoundationModelsReceiptOCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationModelsReceiptOCR.swift; sourceTree = "<group>"; };
+		63BA5C86B43623D7B3A311E2 /* ReceiptOCRProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptOCRProvider.swift; sourceTree = "<group>"; };
 		6B38F4C3F8D13EC2DA83DA75 /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
 		6BDBE0D7808B414E21C890A6 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		74F1E7DABDB079BB9F664B04 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
@@ -52,8 +60,10 @@
 		A31E8C3FEB5D740827390673 /* Adulting.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Adulting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A428E0FD0DA8C32F47FA9C29 /* AdultingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdultingApp.swift; sourceTree = "<group>"; };
 		B3FFF69FADC70A0F9D7E1219 /* ReceiptPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptPhotoView.swift; sourceTree = "<group>"; };
+		BE11B3316E84CB223D8693D2 /* ReceiptOCRFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptOCRFactory.swift; sourceTree = "<group>"; };
 		CAA8B4A8C2334B2484AFFB33 /* PeopleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListView.swift; sourceTree = "<group>"; };
 		D79B1BED36124B9B774537D4 /* BalanceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceSummaryView.swift; sourceTree = "<group>"; };
+		F0BFC26FAE169113BDA95D80 /* VisionReceiptOCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionReceiptOCR.swift; sourceTree = "<group>"; };
 		F2C26B60434CCA7682C1B34C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FCC8A094B7872F81FE079C78 /* RecordPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPaymentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				82A9342FA25229438801D0D8 /* Models */,
+				B660DD48915523CA7E0BBE0D /* OCR */,
 				FFFB049053FE9BB83468C67B /* Persistence */,
 				1519B7A98844076FD4FE4ACE /* Views */,
 				A428E0FD0DA8C32F47FA9C29 /* AdultingApp.swift */,
@@ -101,6 +112,7 @@
 				3CC65C74562A9C1A6E615C25 /* ExpenseDetailView.swift */,
 				3CAA2D62A31E7AD93A5AD9AF /* ExpenseListView.swift */,
 				232D89ECE9048D2F193E874E /* LineItemFormView.swift */,
+				042DD2A3600A92FCC7056CE9 /* OCRReviewView.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -131,6 +143,17 @@
 				054B8B8F99BF389B1A450980 /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		B660DD48915523CA7E0BBE0D /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				607BC98C7CCDD00C993C59DE /* FoundationModelsReceiptOCR.swift */,
+				BE11B3316E84CB223D8693D2 /* ReceiptOCRFactory.swift */,
+				63BA5C86B43623D7B3A311E2 /* ReceiptOCRProvider.swift */,
+				F0BFC26FAE169113BDA95D80 /* VisionReceiptOCR.swift */,
+			);
+			path = OCR;
 			sourceTree = "<group>";
 		};
 		B70D123BB6D989876EE487EE = {
@@ -239,17 +262,22 @@
 				47BBDD3922E0EA7E74CB0892 /* ExpenseDetailView.swift in Sources */,
 				1478761B4BFBC9EC6E2F5DAD /* ExpenseListView.swift in Sources */,
 				B27CDE8BBD2465273A9D0DD5 /* ExpenseSession.swift in Sources */,
+				0B599EFB89A61CB185EF1F96 /* FoundationModelsReceiptOCR.swift in Sources */,
 				9722EA439D301607FA93DB0F /* HomeView.swift in Sources */,
 				D230EBEC367B8DE11AF9F5FE /* LineItem.swift in Sources */,
 				C488ED95BCACB776F2FF81E5 /* LineItemFormView.swift in Sources */,
 				B925CC0848AA905602CF396A /* ModelContainer+Setup.swift in Sources */,
+				6B849D68792936112EED34BA /* OCRReviewView.swift in Sources */,
 				209B2CA8E3DF22943A80E358 /* Payment.swift in Sources */,
 				3E0515787EF6B0203D5ECD16 /* PeopleListView.swift in Sources */,
+				C55341F76E4481CF58D0886B /* ReceiptOCRFactory.swift in Sources */,
+				CC125B891C8AB57E6D857D5D /* ReceiptOCRProvider.swift in Sources */,
 				DC8E5786E0B8096B5CEEC378 /* ReceiptPhotoView.swift in Sources */,
 				50BFF7330A33C26CD4C03AD8 /* RecordPaymentView.swift in Sources */,
 				D072249AFA2C4361F1662CFD /* SettingsView.swift in Sources */,
 				7F4592DFE732D006CBDDE026 /* SummaryView.swift in Sources */,
 				7F1F183794F93F6ACA4690CE /* UserTagPicker.swift in Sources */,
+				8B760ED74473B77E9AF7DBF2 /* VisionReceiptOCR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
