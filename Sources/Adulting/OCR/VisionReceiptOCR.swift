@@ -19,28 +19,22 @@ final class VisionReceiptOCR: ReceiptOCRProvider {
             throw ReceiptOCRError.imageLoadFailed
         }
 
-        return try await withCheckedThrowingContinuation { continuation in
-            let request = VNRecognizeTextRequest { request, error in
-                if let error {
-                    continuation.resume(throwing: error)
-                    return
-                }
-                let observations = (request.results as? [VNRecognizedTextObservation]) ?? []
-                // Vision uses bottom-left origin; sort descending by minY → top-to-bottom reading order
-                let sorted = observations.sorted { $0.boundingBox.minY > $1.boundingBox.minY }
-                let strings = sorted.compactMap { $0.topCandidates(1).first?.string }
-                continuation.resume(returning: strings)
-            }
-            request.recognitionLevel = .accurate
-            request.usesLanguageCorrection = true
+        var strings: [String] = []
+        var recognitionError: Error?
 
-            let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-            do {
-                try handler.perform([request])
-            } catch {
-                continuation.resume(throwing: error)
-            }
+        let request = VNRecognizeTextRequest { request, error in
+            if let error { recognitionError = error; return }
+            let observations = (request.results as? [VNRecognizedTextObservation]) ?? []
+            // Vision uses bottom-left origin; sort descending by minY → top-to-bottom reading order
+            let sorted = observations.sorted { $0.boundingBox.minY > $1.boundingBox.minY }
+            strings = sorted.compactMap { $0.topCandidates(1).first?.string }
         }
+        request.recognitionLevel = .accurate
+        request.usesLanguageCorrection = true
+
+        try VNImageRequestHandler(cgImage: cgImage, options: [:]).perform([request])
+        if let recognitionError { throw recognitionError }
+        return strings
     }
 
     // MARK: - Heuristic line-item parser
