@@ -31,7 +31,7 @@ struct ArchiveManager {
         let archive = ArchiveData(
             exportedAt: Date(),
             users: users.map {
-                ArchivedUser(id: $0.id, name: $0.name, isSelf: $0.isSelf, createdAt: $0.createdAt)
+                ArchivedUser(id: $0.id, name: $0.name, isSelf: $0.isSelf, isUnassigned: $0.isUnassigned, createdAt: $0.createdAt)
             },
             sessions: sessions.map { session in
                 ArchivedSession(
@@ -111,7 +111,7 @@ struct ArchiveManager {
 
         var userMap: [UUID: AppUser] = [:]
         for au in archive.users {
-            let user = AppUser(name: au.name, isSelf: au.isSelf)
+            let user = AppUser(name: au.name, isSelf: au.isSelf, isUnassigned: au.isUnassigned)
             user.id = au.id
             user.createdAt = au.createdAt
             context.insert(user)

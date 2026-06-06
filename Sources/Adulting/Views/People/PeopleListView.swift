@@ -6,8 +6,9 @@ struct PeopleListView: View {
     @Environment(\.modelContext) private var context
     @State private var showAddPerson = false
 
-    private var selfUser: AppUser? { users.first(where: \.isSelf) }
-    private var others: [AppUser] { users.filter { !$0.isSelf } }
+    private var selfUser: AppUser?      { users.first(where: \.isSelf) }
+    private var unassignedUser: AppUser? { users.first(where: \.isUnassigned) }
+    private var others: [AppUser]       { users.filter { !$0.isSelf && !$0.isUnassigned } }
 
     var body: some View {
         NavigationStack {
@@ -20,6 +21,20 @@ struct PeopleListView: View {
                             Text(me.name)
                             Spacer()
                             Text("You")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+
+                if let unassigned = unassignedUser {
+                    Section("System") {
+                        HStack {
+                            Image(systemName: "questionmark.circle")
+                                .foregroundStyle(.secondary)
+                            Text(unassigned.name)
+                            Spacer()
+                            Text("OCR placeholder")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
