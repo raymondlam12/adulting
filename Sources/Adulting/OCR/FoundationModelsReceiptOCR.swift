@@ -30,17 +30,22 @@ final class FoundationModelsReceiptOCR: ReceiptOCRProvider {
         \(rawText)
         """
 
-        let response = try await session.respond(
-            to: prompt,
-            generating: ReceiptExtractionResult.self
-        )
-
-        return response.content.items.compactMap { item in
-            let trimmedName = item.name.trimmingCharacters(in: .whitespaces)
-            guard !trimmedName.isEmpty,
-                  let amount = Decimal(string: item.priceString),
-                  amount > 0 else { return nil }
-            return ExtractedLineItem(name: trimmedName, amount: amount)
+        do {
+            let response = try await session.respond(
+                to: prompt,
+                generating: ReceiptExtractionResult.self
+            )
+            return response.content.items.compactMap { item in
+                let trimmedName = item.name.trimmingCharacters(in: .whitespaces)
+                guard !trimmedName.isEmpty,
+                      let amount = Decimal(string: item.priceString),
+                      amount > 0 else { return nil }
+                return ExtractedLineItem(name: trimmedName, amount: amount)
+            }
+        } catch {
+            // Model assets may be unavailable (e.g. simulator, Apple Intelligence disabled
+            // at OS level) even when isAvailable returns true. Fall back to Vision.
+            return try await visionOCR.extractLineItems(from: imageURL)
         }
     }
 }
